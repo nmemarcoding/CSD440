@@ -1,0 +1,124 @@
+<!--
+File: NimaForm.html
+Author: Nima Memarzadeh
+Date: 2025-09-08
+Description:
+- HTML form for Tech Workshop Registration assignment.
+- Collects 7 required fields using multiple input types:
+  * Full Name (text)
+  * Student ID (text)
+  * Email (text)
+  * Major (select)
+  * Graduation Year (radio)
+  * Skills (checkbox array)
+  * Short Bio (textarea)
+- Styled consistently with NimaResponse.php.
+- Posts form data to NimaResponse.php for validation and display.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/1999/REC-html-19991224/strict.dtd">
+<html>
+  <head>
+    <title>Nima Form — Tech Workshop Registration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+      body { background-color: #f9f3ef; font-family: Arial, Helvetica, sans-serif; margin: 0; }
+      .container { width: 820px; margin: 24px auto; background: #ffffff; border: 1px solid #e5c7b3; }
+      .header { background: #ffa07a; color: #222; padding: 14px 18px; border-bottom: 1px solid #e29371; }
+      .content { padding: 18px; }
+      h2 { margin: 0 0 6px 0; }
+      p.note { margin: 8px 0 16px 0; color: #444; }
+      form p { margin: 10px 0 14px 0; }
+      label { font-weight: bold; }
+      input[type="text"], input[type="password"], select, textarea {
+        width: 100%; max-width: 480px; padding: 6px; border: 1px solid #ccc; font-size: 14px;
+      }
+      textarea { height: 120px; }
+      .controls { margin-top: 10px; }
+      input[type="submit"], input[type="reset"], button {
+        border: 1px solid #e29371; background: #ffa07a; padding: 8px 14px; cursor: pointer;
+        font-size: 14px; border-radius: 4px;
+      }
+      input[type="submit"]:hover, input[type="reset"]:hover, button:hover { background: #ff9466; }
+      .hint { font-weight: normal; color: #666; }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Tech Workshop Registration (Nima)</h2>
+        <div class="hint">All seven fields are required.</div>
+      </div>
+
+      <div class="content">
+        <form action="NimaResponse.php" method="post">
+          <!-- 1) Full Name -->
+          <p>
+            <label>Full Name<br>
+              <input type="text" name="fullName" size="30">
+            </label>
+          </p>
+
+          <!-- 2) Student ID -->
+          <p>
+            <label>Student ID <span class="hint">(7 digits)</span><br>
+              <input type="text" name="studentId" size="12">
+            </label>
+          </p>
+
+          <!-- 3) Email -->
+          <p>
+            <label>Email Address<br>
+              <input type="text" name="email" size="30">
+            </label>
+          </p>
+
+          <!-- 4) Major -->
+          <p>
+            <label>Major<br>
+              <select name="major">
+                <option value="">-- Choose your major --</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Systems">Information Systems</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Undeclared">Undeclared</option>
+              </select>
+            </label>
+          </p>
+
+          <!-- 5) Graduation Year -->
+          <p>
+            <label>Graduation Year</label><br>
+            <label><input type="radio" name="gradYear" value="2026" checked="checked"> 2026</label><br>
+            <label><input type="radio" name="gradYear" value="2027"> 2027</label><br>
+            <label><input type="radio" name="gradYear" value="2028"> 2028</label><br>
+            <label><input type="radio" name="gradYear" value="2029"> 2029</label>
+          </p>
+
+          <!-- 6) Skills -->
+          <p>
+            <label>Skills <span class="hint">(choose at least one)</span></label><br>
+            <label><input type="checkbox" name="skills[]" value="PHP"> PHP</label><br>
+            <label><input type="checkbox" name="skills[]" value="JavaScript"> JavaScript</label><br>
+            <label><input type="checkbox" name="skills[]" value="SQL"> SQL</label><br>
+            <label><input type="checkbox" name="skills[]" value="UX/UI"> UX/UI</label>
+          </p>
+
+          <!-- 7) Short Bio -->
+          <p>
+            <label>Short Bio <span class="hint">(30–300 characters)</span><br>
+              <textarea name="bio" rows="6" cols="45"></textarea>
+            </label>
+          </p>
+
+          <p class="controls">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear Entries">
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
